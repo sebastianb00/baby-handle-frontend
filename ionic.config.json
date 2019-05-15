@@ -1,0 +1,7 @@
+{
+  "name": "babyhandle",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

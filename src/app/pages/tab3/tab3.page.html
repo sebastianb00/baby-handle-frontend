@@ -1,0 +1,36 @@
+<ion-header no-border>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-icon slot="icon-only" name="information-circle-outline"></ion-icon>
+        </ion-buttons>
+        <ion-title>
+            Consejos
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+    <ion-grid fixed>
+        <ion-row>
+            <ion-col size-lg="3" size="12" size-md="4" *ngFor="let consejo of consejos">
+                <div class="post" lines="none">
+
+                    <ion-item>
+                        <ion-avatar slot="start">
+                            <img src="/assets/baby.png" />
+                        </ion-avatar>
+                        <ion-label>{{ consejo.titulo }}</ion-label>
+                        <ion-badge color="secondary">Bebé</ion-badge>
+                    </ion-item>
+
+                    <ion-card>
+                        <ion-card-content text-justify>
+                            {{ consejo.informacion }}
+                        </ion-card-content>
+                    </ion-card>
+
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

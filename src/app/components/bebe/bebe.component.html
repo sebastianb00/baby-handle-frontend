@@ -1,0 +1,48 @@
+<form #fRegistro="ngForm" (ngSubmit)="registrarBebe(fRegistro)">
+    <ion-grid fixed>
+
+        <ion-row>
+            <ion-col>
+                <img class="pick-avatar" src="/assets/baby.png">
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col>
+
+                <ion-list>
+
+                    <ion-item>
+                        <ion-label>Nombres</ion-label>
+                        <ion-input name="nombres" [(ngModel)]="registroBebe.nombres" type="text" required></ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label>Apellidos</ion-label>
+                        <ion-input name="apellidos" [(ngModel)]="registroBebe.apellidos" type="text" required></ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label>Fecha de nacimiento</ion-label>
+                        <ion-input name="fechaNacimiento" [(ngModel)]="registroBebe.fechaNacimiento" type="text" required></ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label>Manilla</ion-label>
+                        <ion-input name="id" [(ngModel)]="registroBebe.id" type="text" required></ion-input>
+                    </ion-item>
+
+                </ion-list>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col>
+                <ion-button type="submit" color="secondary">
+                    Registrar
+                </ion-button>
+            </ion-col>
+        </ion-row>
+
+    </ion-grid>
+</form>
