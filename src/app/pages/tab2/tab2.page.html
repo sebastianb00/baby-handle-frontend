@@ -1,9 +1,15 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Tab Two
-    </ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>
+            Tab Two
+        </ion-title>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<canvas style="height: 500px;" baseChart [chartType]="'line'" [datasets]="datasets" [options]="options">
+</canvas>
+<ion-content padding align="center">
+    <ion-button (click)="conect()">
+        Click me
+    </ion-button>
+</ion-content>

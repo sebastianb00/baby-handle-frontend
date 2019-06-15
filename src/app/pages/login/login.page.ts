@@ -65,6 +65,7 @@ export class LoginPage implements OnInit {
   }
 
   async login(fLogin: NgForm) {
+    this.navCtrl.navigateRoot('/main/tabs/tab1', { animated: true });
     console.log(fLogin);
     const valido = await this.usuarioService.login(this.loginUser.correo, this.loginUser.contrasena);
 
