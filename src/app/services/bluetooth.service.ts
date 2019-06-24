@@ -13,34 +13,20 @@ export class BluetoothService {
   connect() {
     console.log('try connect');
     const decoder = new TextDecoder('utf-8');
-    this.presentLoading();
-    this.bluetoothSerial.connect('98:D3:51:F5:AF:70')
+    this.myEvent.emit('Intentando conectar');
+    // this.presentLoading();
+    this.bluetoothSerial.connect('00:15:83:35:62:51')
       .subscribe(value => {
         this.loadingController.dismiss();
         this.myEvent.emit('Conectado');
-        // this.bluetoothSerial.available().then(value1 => {
-        //     this.bluetoothSerial.read().then(value2 => {
-        //         this.myEvent.emit(`${decoder.decode(value2)}`);
-        //     });
-        // });
         this.bluetoothSerial.subscribeRawData()
           .subscribe(data => {
             this.bluetoothSerial.available().then(value1 => {
               this.bluetoothSerial.read().then(value2 => {
-                // this.myEvent.emit(`${value2}`);
               });
             });
             this.myEvent.emit(`${this.ab2str(data)}`);
           });
-        // this.bluetoothSerial.subscribeRawData()
-        // .subscribe(data => {
-        //         this.bluetoothSerial.available().then(value1 => {
-        //             this.bluetoothSerial.read().then(value2 => {
-        //                 this.myEvent.emit(`${decoder.decode(value2)}`);
-        //             });
-        //         });
-        //             this.myEvent.emit(`${decoder.decode(data)}`);
-        //     });
       });
   }
   ab2str(buf) {

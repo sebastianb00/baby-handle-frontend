@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import { BluetoothService } from 'src/app/services/bluetooth.service';
+import { ToastController } from '@ionic/angular';
 
 declare var require: any;
 let Boost = require('highcharts/modules/boost');
@@ -86,7 +87,11 @@ export class OutputGraphComponent implements OnInit {
       }())
     }]
   }
-  constructor(private bluetooth: BluetoothService) { }
+  constructor(private bluetooth: BluetoothService, public toastController: ToastController) {
+    bluetooth.myEvent.subscribe(values => {
+      this.presentToast(values);
+    })
+  }
 
   ngOnInit() {
     Highcharts.chart('container', this.options);
@@ -94,5 +99,12 @@ export class OutputGraphComponent implements OnInit {
 
   active() {
     this.bluetooth.connect();
+  }
+  async presentToast(message) {
+    const toast = await this.toastController.create({
+      message,
+      duration: 2000
+    });
+    toast.present();
   }
 }
