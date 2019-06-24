@@ -22,7 +22,8 @@ import { BluetoothService } from './services/bluetooth.service';
     BluetoothService,
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    BluetoothSerial
   ],
   bootstrap: [AppComponent]
 })

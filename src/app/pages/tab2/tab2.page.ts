@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {ChartDataSets, ChartOptions, ScaleTitleOptions} from 'chart.js';
-import {BaseChartDirective, Color, Label} from 'ng2-charts';
+import { ChartDataSets, ChartOptions, ScaleTitleOptions } from 'chart.js';
+import { BaseChartDirective, Color, Label } from 'ng2-charts';
 
 
 @Component({
@@ -8,6 +8,6 @@ import {BaseChartDirective, Color, Label} from 'ng2-charts';
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss']
 })
-export class Tab2Page  {
-    
+export class Tab2Page {
+
 }
