@@ -12,19 +12,22 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BluetoothService } from './services/bluetooth.service';
 import { BluetoothSerial } from '@ionic-native/bluetooth-serial/ngx';
+import { NotificacionService } from './services/notificacion.service';
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, IonicStorageModule.forRoot()],
   providers: [
-    BluetoothSerial,
+    NotificacionService,
     BluetoothService,
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    BluetoothSerial
+    BluetoothSerial,
+    LocalNotifications
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import { BluetoothService } from 'src/app/services/bluetooth.service';
 import { ToastController } from '@ionic/angular';
+import { NotificacionService } from 'src/app/services/notificacion.service';
 
 declare var require: any;
 let Boost = require('highcharts/modules/boost');
@@ -20,21 +21,22 @@ noData(Highcharts);
 })
 export class OutputGraphComponent implements OnInit {
 
+  chart;
   public options: any = {
     chart: {
       type: 'spline',
       animation: Highcharts.SVGElement, // don't animate in old IE
       marginRight: 10,
       events: {
-        load: function () {
-          // set up the updating of the chart each second
-          var series = this.series[0];
-          setInterval(function () {
-            var x = (new Date()).getTime(), // current time
-              y = Math.random();
-            series.addPoint([x, y], true, true);
-          }, 1000);
-        }
+        // load: function () {
+        //   // set up the updating of the chart each second
+        // var series = this.series[0];
+        // setInterval(function () {
+        //   var x = (new Date()).getTime(), // current time
+        //     y = Math.random();
+        //   series.addPoint([x, y], true, true);
+        // }, 1000);
+        // }
       }
     },
 
@@ -87,14 +89,31 @@ export class OutputGraphComponent implements OnInit {
       }())
     }]
   }
-  constructor(private bluetooth: BluetoothService, public toastController: ToastController) {
-    bluetooth.myEvent.subscribe(values => {
-      this.presentToast(values);
+  constructor(
+    private bluetooth: BluetoothService,
+    public toastController: ToastController,
+    private notificacionService: NotificacionService) {
+
+    bluetooth.myEvent.subscribe((values: string) => {
+      // if (!values.endsWith('\n')) {
+      console.log(values);
+      // }
+      // const x = (new Date()).getTime(), // current time
+      //   y = values;
+      // this.chart.series.addPoint([x, y], true, true);
+      // this.chart.series
+      // this.presentToast(values);
     })
   }
 
   ngOnInit() {
-    Highcharts.chart('container', this.options);
+    this.chart = Highcharts.chart('container', this.options);
+    var series = this.chart.series[0];
+    setInterval(function () {
+      var x = (new Date()).getTime(), // current time
+        y = Math.random();
+      series.addPoint([x, y], true, true);
+    }, 1000);
   }
 
   active() {

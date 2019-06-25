@@ -1,20 +1,25 @@
 <ion-header>
-    <ion-toolbar>
-        <ion-title>
-            Bebé
-        </ion-title>
-    </ion-toolbar>
+  <ion-toolbar>
+    <ion-title>
+      Ionic Notifications
+    </ion-title>
+  </ion-toolbar>
 </ion-header>
-
-<ion-content>
-    <ion-card class="welcome-card">
-        <ion-img src="/assets/grafica.PNG"></ion-img>
-        <ion-card-header>
-            <ion-card-subtitle>Temperatura</ion-card-subtitle>
-            <ion-card-title>Estado del bebé.</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-            <p>Aquí podemos ver la temperatura del bebé actualmente.</p>
-        </ion-card-content>
-    </ion-card>
+ 
+<ion-content padding>
+ 
+  <ion-button expand="block" (click)="scheduleNotification()">Schedule</ion-button>
+  <ion-button expand="block" (click)="recurringNotification()">Every Minute</ion-button>
+  <ion-button expand="block" (click)="repeatingDaily()">Daily</ion-button>
+  <ion-button expand="block" (click)="getAll()">Get All</ion-button>
+ 
+  <ion-list>
+    <ion-item *ngFor="let n of scheduled">
+      <ion-label text-wrap>
+        {{ n.id }} - {{ n.title }}
+        <p>Trigger: {{ n.trigger | json }} </p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+ 
 </ion-content>

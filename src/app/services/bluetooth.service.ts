@@ -17,16 +17,18 @@ export class BluetoothService {
     // this.presentLoading();
     this.bluetoothSerial.connect('00:15:83:35:62:51')
       .subscribe(value => {
-        this.loadingController.dismiss();
         this.myEvent.emit('Conectado');
-        this.bluetoothSerial.subscribeRawData()
-          .subscribe(data => {
-            this.bluetoothSerial.available().then(value1 => {
-              this.bluetoothSerial.read().then(value2 => {
-              });
-            });
-            this.myEvent.emit(`${this.ab2str(data)}`);
-          });
+        this.bluetoothSerial.subscribe('\n').subscribe((data: string) => {
+          // console.log('new Data', data.split('\r')[0]);
+          this.myEvent.emit(`${data.split('\r')[0]}`);
+        })
+        // this.bluetoothSerial.subscribeRawData()
+        //   .subscribe(data => {
+        //     this.bluetoothSerial.read()
+        //       .then(valu => {
+        //         console.log('decode1', valu);
+        //       })
+        //   })
       });
   }
   ab2str(buf) {
