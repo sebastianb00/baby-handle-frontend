@@ -20,7 +20,6 @@ noData(Highcharts);
   styleUrls: ['./output-graph.component.scss'],
 })
 export class OutputGraphComponent implements OnInit {
-
   chart;
   public options: any = {
     chart: {
@@ -93,27 +92,17 @@ export class OutputGraphComponent implements OnInit {
     private bluetooth: BluetoothService,
     public toastController: ToastController,
     private notificacionService: NotificacionService) {
-
-    bluetooth.myEvent.subscribe((values: string) => {
-      // if (!values.endsWith('\n')) {
-      console.log(values);
-      // }
-      // const x = (new Date()).getTime(), // current time
-      //   y = values;
-      // this.chart.series.addPoint([x, y], true, true);
-      // this.chart.series
-      // this.presentToast(values);
-    })
   }
 
   ngOnInit() {
     this.chart = Highcharts.chart('container', this.options);
-    var series = this.chart.series[0];
-    setInterval(function () {
-      var x = (new Date()).getTime(), // current time
-        y = Math.random();
+    this.bluetooth.myEvent.subscribe((value: string) => {
+      console.log(value);
+      const series = this.chart.series[0];
+      const x = (new Date()).getTime(), // current time
+        y = value;
       series.addPoint([x, y], true, true);
-    }, 1000);
+    })
   }
 
   active() {
