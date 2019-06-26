@@ -100,7 +100,7 @@ export class OutputGraphComponent implements OnInit {
       console.log(value);
       const series = this.chart.series[0];
       const x = (new Date()).getTime(), // current time
-        y = value;
+        y = value ;
       series.addPoint([x, y], true, true);
     })
   }

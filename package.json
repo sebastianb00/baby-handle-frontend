@@ -34,7 +34,6 @@
     "cordova-plugin-bluetooth-serial": "0.4.7",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-local-notification": "^0.9.0-beta.2",
-    "cordova-sqlite-storage": "^3.2.0",
     "core-js": "^2.5.4",
     "highcharts": "^7.1.2",
     "rxjs": "~6.3.3",
@@ -76,7 +75,6 @@
   "description": "An Ionic project",
   "cordova": {
     "plugins": {
-      "cordova-sqlite-storage": {},
       "cordova-plugin-bluetooth-serial": {},
       "cordova-plugin-whitelist": {},
       "cordova-plugin-statusbar": {},
