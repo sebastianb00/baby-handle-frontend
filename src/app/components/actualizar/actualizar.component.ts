@@ -12,10 +12,6 @@ import { UiServiceService } from 'src/app/services/ui-service.service';
 })
 export class ActualizarComponent implements OnInit {
 
-  actualizar: Usuario = {
-    correo: '',
-    contrasena: ''
-  };
 
 
   constructor(private usuarioService: UsuarioService,
