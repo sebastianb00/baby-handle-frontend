@@ -13,22 +13,25 @@
                 <ion-list>
 
                     <ion-item>
-                        <ion-label>Nombres</ion-label>
+                        <ion-label position="floating">Nombres</ion-label>
                         <ion-input name="nombres" [(ngModel)]="registroBebe.nombres" type="text" required></ion-input>
                     </ion-item>
 
                     <ion-item>
-                        <ion-label>Apellidos</ion-label>
+                        <ion-label position="floating">Apellidos</ion-label>
                         <ion-input name="apellidos" [(ngModel)]="registroBebe.apellidos" type="text" required></ion-input>
                     </ion-item>
 
                     <ion-item>
-                        <ion-label>Fecha de nacimiento</ion-label>
-                        <ion-input name="fechaNacimiento" [(ngModel)]="registroBebe.fechaNacimiento" type="text" required></ion-input>
+                        <ion-label position="floating">Fecha de nacimiento</ion-label>
+                        <ion-datetime name="fechaNacimiento" [(ngModel)]="registroBebe.fechaNacimiento" value="2010-04-15" min="2000-02" max="2020"
+                            [dayShortNames]="customDayShortNames"
+                            displayFormat="MMM DD, YYYY"
+                            monthShortNames="Ene, Feb, Mar, Abr, May, Jun, Jul, Ago, Sep, Oct, Nov, Dic"> required</ion-datetime>
                     </ion-item>
 
                     <ion-item>
-                        <ion-label>Manilla</ion-label>
+                        <ion-label position="floating">Manilla</ion-label>
                         <ion-input name="id" [(ngModel)]="registroBebe.id" type="text" required></ion-input>
                     </ion-item>
 
@@ -38,11 +41,10 @@
 
         <ion-row>
             <ion-col>
-                <ion-button type="submit" color="secondary">
+                <ion-button type="submit">
                     Registrar
                 </ion-button>
             </ion-col>
         </ion-row>
-
     </ion-grid>
 </form>

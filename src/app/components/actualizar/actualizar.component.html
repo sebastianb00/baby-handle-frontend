@@ -1,0 +1,35 @@
+<ion-content>
+  <ion-slide>
+    <form r(ngSubmit)="actualizarUser()">
+      <ion-row>
+        <ion-col>
+
+          <ion-list>
+            
+            <ion-item>
+              <ion-label position="floating">Contraseña</ion-label>
+              <ion-input name="contrasena" type="password" required></ion-input>
+            </ion-item>
+
+            <ion-item details>
+              <ion-label position="floating">Confirmar Contraseña</ion-label>
+              <ion-input name="Confirmar contrasena" type="password" required></ion-input>
+            </ion-item>
+
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col>
+              <ion-button type="submit" color="secondary">
+                  Actualizar
+              </ion-button>
+          </ion-col>
+      </ion-row>
+    </form>
+  </ion-slide>
+
+  <ion-slide>
+    <app-bebe></app-bebe>
+  </ion-slide>
+</ion-content>

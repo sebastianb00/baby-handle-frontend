@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { ActualizarComponent } from './components/actualizar/actualizar.component';
 
 const routes: Routes = [
   { path: 'main', loadChildren: './pages/tabs/tabs.module#TabsPageModule' },
   { path: 'login', loadChildren: './pages/login/login.module#LoginPageModule' },
-  { path: '', pathMatch: 'full', redirectTo: 'login' },
-  { path: 'tab4', loadChildren: './pages/tab4/tab4.module#Tab4PageModule' }
+  { path: '', pathMatch: 'full', redirectTo: 'login' }
 ];
 @NgModule({
   imports: [

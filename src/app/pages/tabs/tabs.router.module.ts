@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
+import { ActualizarComponent } from 'src/app/components/actualizar/actualizar.component';
+
 
 const routes: Routes = [
   {
@@ -40,7 +42,8 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: '../tab4/tab4.module#Tab4PageModule'
-          }
+          },
+          { path: 'actualizar', component: ActualizarComponent } 
         ]
       },
       {

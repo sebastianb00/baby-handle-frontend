@@ -48,6 +48,13 @@ export class UsuarioService {
     });
   }
 
+  actualizar(usuario: Usuario) {
+    return this.http.put(`${ URL }/encargado`, usuario).subscribe(res =>{
+      console.log(res);
+      
+    });
+  }
+
   async guardarUsuario(correo: string, contrasena: string) {
     this.correo = correo;
     this.contrasena = contrasena;

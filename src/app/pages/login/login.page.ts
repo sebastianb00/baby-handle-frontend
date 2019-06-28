@@ -14,7 +14,7 @@ import { Usuario } from '../../interfaces/usuario';
 export class LoginPage implements OnInit {
 
   @ViewChild('slideLogin') slides: IonSlides;
-
+  
   avatars: Avatar[] = [
     { img: 'av-3.png', seleccionado: true },
     { img: 'av-4.png', seleccionado: false },
@@ -65,13 +65,13 @@ export class LoginPage implements OnInit {
   }
 
   async login(fLogin: NgForm) {
-    this.navCtrl.navigateRoot('/main/tabs/tab1', { animated: true });
+    this.navCtrl.navigateRoot('/main/tabs/tab2', { animated: true });
     console.log(fLogin);
     const valido = await this.usuarioService.login(this.loginUser.correo, this.loginUser.contrasena);
 
     if (valido) {
       // Navegar al tabs
-      this.navCtrl.navigateRoot('/main/tabs/tab1', { animated: true });
+      this.navCtrl.navigateRoot('/main/tabs/tab2', { animated: true });
     } else {
       // Mostrar alerta de usuario y contraseña no correctos
       this.uIService.alertaInformativa('Correo y/o contraseña incorrectos. Verifique, por favor.');
