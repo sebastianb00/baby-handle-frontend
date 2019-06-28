@@ -21,6 +21,7 @@ noData(Highcharts);
 })
 export class OutputGraphComponent implements OnInit {
   chart;
+  temperatura ;
   public options: any = {
     chart: {
       type: 'spline',
@@ -98,9 +99,10 @@ export class OutputGraphComponent implements OnInit {
     this.chart = Highcharts.chart('container', this.options);
     this.bluetooth.myEvent.subscribe((value: string) => {
       console.log(value);
+      this.temperatura = value;
       const series = this.chart.series[0];
       const x = (new Date()).getTime(), // current time
-        y = value ;
+        y = parseInt(value); 
       series.addPoint([x, y], true, true);
     })
   }
